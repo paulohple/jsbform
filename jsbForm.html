@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    label {
+      display: inline;
+      margin-top: 10px;
+    }
+
+    form {
+      width: 350px;
+      margin: auto;
+      border: 1px solid black;
+      padding: 20px;
+    }
+
+    input[type="text"] {
+      width: 90%;
+    }
+
+    input[type="radio"] {
+      display: inline;
+    }
+
+    select {
+      width: 150px
+    }
+
+    textarea {
+      width: 90%;
+    }
+  </style>
+
+  <script>
+
+    function verificar() {
+      // Obter todas os inputs do document
+      vet_inputs = document.getElementsByTagName("input");
+
+      for (i = 0; i < vet_inputs.length; i++)
+        if ((vet_inputs[i].type == "text") && (vet_inputs[i].value == "")) {
+          alert(`${vet_inputs[i].name} está vazio!!!`);
+          break;
+        }
+    }
+
+    function verificarRadio() {
+      vet_idM = document.getElementById("sexoM");
+      vet_idF = document.getElementById("sexoF");
+
+      if ((vet_idM.checked == false) && (vet_idF.checked == false)) {
+        alert("Sexo deve ser selecionado!!!");
+      }
+    }
+
+    function verificarSelect() {
+      select = document.getElementById('sele');
+
+      if (select.selected == true) {
+        alert("Ao menos uma opção deve ser avaliada!!!");
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+  <form>
+    <label for="txtNome">Nome:</label>
+    <input type="text" id="txtNome" name="NOME">
+
+    <br><br>
+    <label for="txtEndereco">Endereço:</label>
+    <input type="text" id="txtEndereco" name="ENDEREÇO">
+
+    <br><br>
+    <label for="txtFone">Telefone:</label>
+    <input type="text" id="txtFone" name="TELEFONE">
+
+    <br><br>
+    <label for="txtCidade">Cidade:</label>
+    <input type="text" id="txtCidade" name="CIDADE">
+
+    <br><br>
+    <label for="txtEstado">Estado:</label>
+    <input type="text" id="txtEstado" name="ESTADO">
+
+    <br><br>
+    <input type="radio" id="sexoM" name="sexo" onclick="if(this.checked){checked = true}"><label for="sexoM" name="sexo">Masculino</label>
+    <input type="radio" id="sexoF" name="sexo" onclick="if(this.checked){checked = true}"><label for="sexoF" name="sexo">Feminino</label> <br>
+
+    <br>
+    <select name="select">
+      <option value="selecione" id="sele" name="selecione" selected>Selecione</option>
+      <option value="solteiro" name="solteiro">Solteiro</option>
+      <option value="casado" name="casado">Casado</option>
+      <option value="divorciado" name="Divorciado">Divorciado</option>
+    </select>
+
+    <br>
+    <br>
+    <textarea name="textarea" rows="5" cols="30" minlength="10" maxlength="20" placeholder="Sugestões"></textarea>
+
+    <br>
+    <br>
+    <input type="button" value="Cadastrar" onclick="verificar(); verificarRadio(); verificarSelect()">
+    <input type="reset" value="Limpar" onclick="limpar()">
+  </form>
+</body>
+
+</html>
+
+<!-- ATIVIDADE AVALIATIVA NO VALOR DE 5,0 PONTOS CRIAR UM FORMULÁRIO CONTENDO NO MINIMO:=> 5 caixas de texto
+=> 1 conjunto de INPUT RADIO
+=> 1 select
+=> 1 textarea
+usem a criatividade de vocês para formatar/posicionar os elementos
+além dos botões cadastrar e limpar
+VALIDAR TODOS OS CAMPOS
+-->
